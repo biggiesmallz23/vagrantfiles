@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
       end
       
       $masterscript = <<-PARTEND
-	    sudo yum update -y && sudo yum upgrade -y
+	sudo yum update -y && sudo yum upgrade -y
         sudo yum install -y epel-release
         sudo yum install -y net-tools
         sudo yum install -y nano
