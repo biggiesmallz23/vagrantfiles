@@ -1,5 +1,3 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
 hosts = [ 
 { name: 'c7master', box: 'centos/7', mem: 1024, netint: 1 }, 
 { name: 'c7slave',  box: 'centos/7', mem: 1024, netint: 2 }
