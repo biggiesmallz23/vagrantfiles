@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
         cd /home/vagrant/.ssh/
         sudo --user=vagrant ssh-keygen -t rsa -b 4096 -f /home/vagrant/.ssh/id_rsa -P ""
         cp /home/vagrant/.ssh/id_rsa.pub /vagrant/
-        sudo --user=vagrant cp /vagrant/site.yml /vagrant/inventory /home/vagrant/
+        sudo --user=vagrant cp /vagrant/site.yml /vagrant/inventory /vagrant/ansible.cgf /home/vagrant/
 PARTEND
 
       $slavescript = <<-PARTEND
@@ -46,7 +46,7 @@ PARTEND
         node.vm.network "private_network", ip: "192.168.100.101", bridge: 'wlp37s0b1'
         node.vm.provision "shell", inline: $masterscript
       end
-# Once done, you still have to add c7slave's key to 'known_hosts' file of c7master machine by connecting the vm or with a command:
+# Once done, you still have to add c7slave's key to 'known_hosts' file of c7master by connecting the vm or with the command:
 # ssh-keyscan 192.168.100.202 >> known_hosts
 
       if host[:netint] == 2
