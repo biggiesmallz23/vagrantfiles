@@ -46,8 +46,10 @@ PARTEND
         node.vm.network "private_network", ip: "192.168.100.101", bridge: 'wlp37s0b1'
         node.vm.provision "shell", inline: $masterscript
       end
+# Once done, you still have to add c7slave's key to 'known_hosts' file of c7master machine by connecting the vm or with a command:
+# ssh-keyscan 192.168.100.202 >> known_hosts
 
-      if host[:netint] == 2
+if host[:netint] == 2
         node.vm.network "private_network", ip: "192.168.100.202", bridge: 'wlp37s0b1'
         node.vm.provision "shell", inline: $slavescript
       end
